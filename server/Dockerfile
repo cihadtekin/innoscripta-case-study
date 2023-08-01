@@ -19,4 +19,11 @@ RUN php artisan migrate
 
 RUN chown -R www-data:www-data /app
 
+COPY seed-cron /etc/cron.d/seed-cron
+RUN chmod 0644 /etc/cron.d/seed-cron
+RUN crontab /etc/cron.d/seed-cron
+RUN touch /var/log/cron.log
+
 EXPOSE 9000
+
+CMD ./start-cron.sh && php-fpm

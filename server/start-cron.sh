@@ -1,0 +1,2 @@
+env >> /etc/environment
+cron

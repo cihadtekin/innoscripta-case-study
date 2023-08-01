@@ -1,4 +1,4 @@
-# NewsFeed client
+# NewsFeed server
 Case-study for innoscripta
 
 ## Requirements

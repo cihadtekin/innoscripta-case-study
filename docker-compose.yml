@@ -1,6 +1,8 @@
-version: '3'
+version: "3.9"
+name: newsfeed
 services:
   server:
+    container_name: newsfeed_server
     build: 
       context: ./server
     restart: unless-stopped     
@@ -10,12 +12,14 @@ services:
       - NEWSDATA_IO_API_KEY=
       - JWT_SECRET=
   client:
+    container_name: newsfeed_server
     build: 
       context: ./client
       args:
         - VITE_REST_API=
     restart: unless-stopped     
   nginx:
+    container_name: newsfeed_nginx
     build: 
       context: .
       dockerfile: Dockerfile.nginx

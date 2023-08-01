@@ -1,0 +1,2 @@
+
+0 */2 * * * cd /app && /usr/local/bin/php artisan db:seed >> /var/log/cron.log 2>&1
