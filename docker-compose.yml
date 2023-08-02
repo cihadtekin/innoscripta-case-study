@@ -12,11 +12,11 @@ services:
       - NEWSDATA_IO_API_KEY=
       - JWT_SECRET=
   client:
-    container_name: newsfeed_server
+    container_name: newsfeed_client
     build: 
       context: ./client
       args:
-        - VITE_REST_API=
+        - VITE_REST_API=http://localhost/api/
     restart: unless-stopped     
   nginx:
     container_name: newsfeed_nginx
